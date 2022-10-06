@@ -10,6 +10,7 @@ const Intern = require('./lib/Intern');
 const questions = require('./questions'); 
 const render = require('./lib/htmlRenderer'); 
 const { Sequelize } = require('sequelize/types');
+const { init } = require('express/lib/application');
 
 
 //Array to contain all employee objects to render HTML 
@@ -81,3 +82,34 @@ async function createEmployee() {
             await confirmEmployee(); 
     };
 }; 
+
+
+//main funciton 
+async function init() {
+    try {
+        //gathers information about team members. objects are created fr ea member based on classes
+
+        //Collects info abt manager role and creates a mgr obj. 
+        await createManager(); 
+        //promts the creation of a new emply  and creates an emply w/i confirmEmployee function 
+        await confirmEmployee(); 
+
+    } catch (error) {
+        console.log(error); 
+    }; 
+
+    try {
+        //after entering all employees, call the render function and pass an array w/ all emply obj 
+
+        let renderHTML = rend(employees); 
+
+        fs.writeFileSync('./docs/index.html', renderedHTML);
+
+        console.log('Success! Your HTML page has been generated in the docs folder.')
+
+    } catch(error){
+        console.log(error);
+    }
+} ; 
+
+init();
