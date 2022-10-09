@@ -16,7 +16,8 @@ To generate your own HTML team page, first download the repository and run `npm 
 Once you have `npm install` your dependencies, you can run the Node CLI application with `npm start` which will begin the questions about your engineering team. You can run the tests at any time with `npm test`.
 
 
-Demonstrations can be found in the images folder 
+## Demonstrations can be found in the images folder 
+['Project'](images/SR_Project10.webm) ['Tests'](images/SR_project10tests.webm)
 
 <img src="images/Screen Shot 2022-10-08 at 8.18.05 PM.png">
 
